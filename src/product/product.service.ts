@@ -4,6 +4,7 @@ import { UpdateProductDto } from './dto/update-product.dto';
 import { InjectRepository } from "@nestjs/typeorm";
 import { Product } from "./entities/product.entity";
 import { Repository } from "typeorm";
+import { string } from "@hapi/joi";
 
 @Injectable()
 export class ProductService {
@@ -31,6 +32,16 @@ export class ProductService {
   }
 
 
+  async getDetailProduct(id: number){
+    const product = await this.productRepo.findOneById(id);
+    return product;
+  }
+
+
+  async deleteProduct(id: number){
+    const deleted = await this.productRepo.delete(id);
+    return 'deleted';
+  }
 
 
 
