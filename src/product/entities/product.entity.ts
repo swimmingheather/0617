@@ -4,6 +4,8 @@ import { CommonEntity } from "./common.entity";
 export class Product extends CommonEntity {
 
 
+
+
   @Column()
   public name: string;
 
